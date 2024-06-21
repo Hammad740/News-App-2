@@ -20,9 +20,18 @@ const App = () => {
     setCategory(category);
     setSearchTerm('');
   };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setCategory('');
+    setSearchTerm(e.target.search.value);
+    // console.log(e.target);
+    // console.log(e.target.search);
+    // console.log(e.target.search.value);
+  };
+
   return (
     <>
-      <Navbar expand="lg" className="bg-light">
+      <Navbar expand="lg" style={{ background: '#D2D6DB' }}>
         <Container>
           <Navbar.Brand href="#home" className="fs-3 fw-bold">
             News-Hub
@@ -54,29 +63,39 @@ const App = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
-            <Form className="d-flex">
+            <Form className="d-flex pt-1" onSubmit={handleSearch}>
               <FormControl
                 type="text"
                 placeholder="Search"
                 className="me-2"
                 name="search"
               />
-              <Button variant="outline-dark">Search</Button>
+              <Button variant="outline-dark" type="submit">
+                Search
+              </Button>
             </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-
-      <Container className="mt-4">
+      <Container
+        className="mt-4 mb-4 rounded p-4"
+        style={{ background: '#D2D6DB' }}
+      >
         <Row>
           <Col xs={12} md={3}>
             <h5>Categories</h5>
             <Nav className="flex-column">
-              <Nav.Link>World</Nav.Link>
-              <Nav.Link>Business</Nav.Link>
-              <Nav.Link>Technology</Nav.Link>
-              <Nav.Link>Sports</Nav.Link>
-              <Nav.Link>Entertainment</Nav.Link>
+              <Nav.Link onClick={() => setCategory('world')}>World</Nav.Link>
+              <Nav.Link onClick={() => setCategory('business')}>
+                Business
+              </Nav.Link>
+              <Nav.Link onClick={() => setCategory('technology')}>
+                Technology
+              </Nav.Link>
+              <Nav.Link onClick={() => setCategory('sports')}>Sports</Nav.Link>
+              <Nav.Link onClick={() => setCategory('entertainment')}>
+                Entertainment
+              </Nav.Link>
             </Nav>
           </Col>
           <Col xs={12} md={9}>
