@@ -1,11 +1,3 @@
-Sure! To attach an image of your project in the README file, follow these steps:
-
-1. **Save the screenshot**: Take a screenshot of your project and save it in your project's directory. Let's assume you save it as `screenshot.png` in the `public` directory.
-
-2. **Reference the image in the README**: Use Markdown syntax to reference the image in your README file.
-
-Here is an updated version of the README file including the image:
-
 # News App
 
 ## Overview
